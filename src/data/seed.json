@@ -23,50 +23,268 @@
       "assistance": "Manejo de salarios, deducciones, beneficios de empleados.",
       "phone": "(787) 555-1111 ext. 203",
       "email": "csanchez@organizacion.org"
+    },
+    {
+      "id": "4",
+      "name": "Laura Gómez",
+      "role": "Generalista de Recursos Humanos",
+      "assistance": "Atención de casos, onboarding, cumplimiento de políticas.",
+      "phone": "(787) 555-1111 ext. 204",
+      "email": "lgomez@organizacion.org"
+    },
+    {
+      "id": "5",
+      "name": "Pedro Ortiz",
+      "role": "Analista de Compensación",
+      "assistance": "Estructuras salariales, encuestas de mercado, bandas.",
+      "phone": "(787) 555-1111 ext. 205",
+      "email": "portiz@organizacion.org"
+    },
+    {
+      "id": "6",
+      "name": "Ana Torres",
+      "role": "Analista de Beneficios",
+      "assistance": "Planes médicos, 401(k), vida, elegibilidad.",
+      "phone": "(787) 555-1111 ext. 206",
+      "email": "atorres@organizacion.org"
+    },
+    {
+      "id": "7",
+      "name": "Diego Pérez",
+      "role": "Coordinador de Capacitación",
+      "assistance": "LMS, planes de adiestramiento, inducción.",
+      "phone": "(787) 555-1111 ext. 207",
+      "email": "dperez@organizacion.org"
+    },
+    {
+      "id": "8",
+      "name": "Sofía Cruz",
+      "role": "Especialista en Relaciones Laborales",
+      "assistance": "Mediación, disciplinarios, convenios colectivos.",
+      "phone": "(787) 555-1111 ext. 208",
+      "email": "scruz@organizacion.org"
+    },
+    {
+      "id": "9",
+      "name": "Marta Vélez",
+      "role": "Business Partner HR – Operaciones",
+      "assistance": "Acompaña a gerencias, sucesión, clima laboral.",
+      "phone": "(787) 555-1111 ext. 209",
+      "email": "mvelez@organizacion.org"
+    },
+    {
+      "id": "10",
+      "name": "Carlos Medina",
+      "role": "Business Partner HR – Clínicas",
+      "assistance": "Dotación, licencias, compliance clínico.",
+      "phone": "(787) 555-1111 ext. 210",
+      "email": "cmedina@organizacion.org"
+    },
+    {
+      "id": "11",
+      "name": "Elena Ramos",
+      "role": "Especialista de Reclutamiento Técnico",
+      "assistance": "Perfiles IT, ferias, acuerdos con universidades.",
+      "phone": "(787) 555-1111 ext. 211",
+      "email": "eramos@organizacion.org"
+    },
+    {
+      "id": "12",
+      "name": "Javier Lugo",
+      "role": "Coordinador de Evaluación de Desempeño",
+      "assistance": "Ciclos de performance, calibraciones.",
+      "phone": "(787) 555-1111 ext. 212",
+      "email": "jlugo@organizacion.org"
+    },
+    {
+      "id": "13",
+      "name": "Nora Santiago",
+      "role": "Analista de Datos HR",
+      "assistance": "KPIs, dashboards, rotación, time-to-hire.",
+      "phone": "(787) 555-1111 ext. 213",
+      "email": "nsantiago@organizacion.org"
+    },
+    {
+      "id": "14",
+      "name": "Iván Rivera",
+      "role": "Especialista de Seguridad y Salud",
+      "assistance": "OSHA, adiestramientos, incidentes.",
+      "phone": "(787) 555-1111 ext. 214",
+      "email": "irivera@organizacion.org"
+    },
+    {
+      "id": "15",
+      "name": "Patricia Díaz",
+      "role": "Coordinadora de Nómina Senior",
+      "assistance": "Cierres, reconciliaciones, W-2/1099.",
+      "phone": "(787) 555-1111 ext. 215",
+      "email": "pdiaz@organizacion.org"
+    },
+    {
+      "id": "16",
+      "name": "Ricardo Figueroa",
+      "role": "Administrador HRIS",
+      "assistance": "Workday/SuccessFactors, integraciones.",
+      "phone": "(787) 555-1111 ext. 216",
+      "email": "rfigueroa@organizacion.org"
+    },
+    {
+      "id": "17",
+      "name": "Valeria Colón",
+      "role": "Especialista de Diversidad & Inclusión",
+      "assistance": "Programas DEI, métricas, sensibilización.",
+      "phone": "(787) 555-1111 ext. 217",
+      "email": "vcolon@organizacion.org"
+    },
+    {
+      "id": "18",
+      "name": "Héctor Maldonado",
+      "role": "Coordinador de Bienestar",
+      "assistance": "Salud mental, ergonomía, campañas.",
+      "phone": "(787) 555-1111 ext. 218",
+      "email": "hmaldonado@organizacion.org"
+    },
+    {
+      "id": "19",
+      "name": "Isabel Prieto",
+      "role": "Especialista de Onboarding",
+      "assistance": "Contratos, pre-empleo, bienvenida.",
+      "phone": "(787) 555-1111 ext. 219",
+      "email": "iprieto@organizacion.org"
+    },
+    {
+      "id": "20",
+      "name": "Tomás Nieves",
+      "role": "Gestor de Contratistas",
+      "assistance": "Acuerdos, compliance, verificación.",
+      "phone": "(787) 555-1111 ext. 220",
+      "email": "tnieves@organizacion.org"
+    },
+    {
+      "id": "21",
+      "name": "Gabriela León",
+      "role": "Coordinadora de Reconocimiento",
+      "assistance": "Programas de premios, aniversarios.",
+      "phone": "(787) 555-1111 ext. 221",
+      "email": "gleon@organizacion.org"
+    },
+    {
+      "id": "22",
+      "name": "Oscar Báez",
+      "role": "Analista de Ausentismo",
+      "assistance": "FMLA/ADA, licencias, seguimiento médico.",
+      "phone": "(787) 555-1111 ext. 222",
+      "email": "obaez@organizacion.org"
+    },
+    {
+      "id": "23",
+      "name": "Lidia Ferrer",
+      "role": "Especialista de Comunicación Interna",
+      "assistance": "Boletines, Town Halls, intranet.",
+      "phone": "(787) 555-1111 ext. 223",
+      "email": "lferrer@organizacion.org"
+    },
+    {
+      "id": "24",
+      "name": "Marco Ruiz",
+      "role": "Coordinador de Turnos",
+      "assistance": "Horarios, cobertura, rotaciones.",
+      "phone": "(787) 555-1111 ext. 224",
+      "email": "mruiz@organizacion.org"
+    },
+    {
+      "id": "25",
+      "name": "Paola Aguayo",
+      "role": "Analista de Clima y Engagement",
+      "assistance": "Encuestas, focus groups, planes de acción.",
+      "phone": "(787) 555-1111 ext. 225",
+      "email": "paguayo@organizacion.org"
     }
   ],
   "docs": [
     {
       "id": "d1",
       "title": "Manual del Empleado",
-      "url": "#",
+      "url": "/docs/manual_empleado.html",
       "category": "General",
       "updated": "2025-08-01"
     },
     {
       "id": "d2",
       "title": "Políticas de Asistencia y Licencias",
-      "url": "#",
+      "url": "/docs/politicas_asistencia.html",
       "category": "Políticas",
       "updated": "2025-07-15"
     },
     {
       "id": "d3",
       "title": "Procedimiento de Reclutamiento",
-      "url": "#",
+      "url": "/docs/procedimiento_reclutamiento.html",
       "category": "Reclutamiento",
       "updated": "2025-06-20"
     },
     {
       "id": "d4",
       "title": "Formato Solicitud de Personal",
-      "url": "#",
+      "url": "/docs/formato_solicitud.html",
       "category": "Formularios",
       "updated": "2025-05-30"
     },
     {
       "id": "d5",
       "title": "Guía de Evaluación de Desempeño",
-      "url": "#",
+      "url": "/docs/guia_evaluacion.html",
       "category": "Evaluación",
       "updated": "2025-07-10"
     },
     {
       "id": "d6",
       "title": "Protocolos de Confidencialidad y PII",
-      "url": "#",
+      "url": "/docs/protocolos_confidencialidad.html",
       "category": "Compliance",
       "updated": "2025-04-18"
+    },
+    {
+      "id": "d7",
+      "title": "Política de Teletrabajo",
+      "url": "/docs/politica_teletrabajo.html",
+      "category": "Políticas",
+      "updated": "2025-03-10"
+    },
+    {
+      "id": "d8",
+      "title": "Código de Conducta",
+      "url": "/docs/codigo_conducta.html",
+      "category": "Compliance",
+      "updated": "2025-01-22"
+    },
+    {
+      "id": "d9",
+      "title": "Guía de Onboarding",
+      "url": "/docs/guia_onboarding.html",
+      "category": "Onboarding",
+      "updated": "2025-02-05"
+    },
+    {
+      "id": "d10",
+      "title": "Matriz de Competencias",
+      "url": "/docs/matriz_competencias.html",
+      "category": "Talento",
+      "updated": "2025-06-11"
+    },
+    {
+      "id": "d11",
+      "title": "Calendario de Nómina",
+      "url": "/docs/calendario_nomina.html",
+      "category": "Nómina",
+      "updated": "2025-09-01"
+    },
+    {
+      "id": "d12",
+      "title": "Preguntas Frecuentes de Beneficios",
+      "url": "/docs/faq_beneficios.html",
+      "category": "Beneficios",
+      "updated": "2025-08-20"
     }
   ],
   "events": [
@@ -78,15 +296,159 @@
     },
     {
       "id": "e2",
-      "date": "2025-09-20",
-      "title": "Capacitación: PII & HIPAA",
-      "type": "Capacitación"
+      "date": "2025-09-30",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
     },
     {
       "id": "e3",
-      "date": "2025-09-30",
-      "title": "Entrega de evaluaciones",
+      "date": "2025-09-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e4",
+      "date": "2025-10-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e5",
+      "date": "2025-10-31",
+      "title": "Entrega de evaluaciones / Cierre mensual",
       "type": "Evaluación"
+    },
+    {
+      "id": "e6",
+      "date": "2025-10-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e7",
+      "date": "2025-11-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e8",
+      "date": "2025-11-30",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e9",
+      "date": "2025-11-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e10",
+      "date": "2025-12-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e11",
+      "date": "2025-12-31",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e12",
+      "date": "2025-12-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e13",
+      "date": "2026-01-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e14",
+      "date": "2026-01-31",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e15",
+      "date": "2026-01-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e16",
+      "date": "2026-02-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e17",
+      "date": "2026-02-28",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e18",
+      "date": "2026-02-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e19",
+      "date": "2026-03-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e20",
+      "date": "2026-03-31",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e21",
+      "date": "2026-03-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e22",
+      "date": "2026-04-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e23",
+      "date": "2026-04-30",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e24",
+      "date": "2026-04-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e25",
+      "date": "2026-05-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e26",
+      "date": "2026-05-31",
+      "title": "Entrega de evaluaciones / Cierre mensual",
+      "type": "Evaluación"
+    },
+    {
+      "id": "e27",
+      "date": "2026-05-20",
+      "title": "Capacitación: Cumplimiento & PII",
+      "type": "Capacitación"
     }
   ]
 }
