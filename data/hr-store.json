@@ -1,0 +1,15 @@
+{
+  "staff": [
+    {
+      "id": "1",
+      "name": "María López",
+      "role": "Directora de Recursos Humanos",
+      "assistance": "Políticas institucionales, relaciones laborales, decisiones críticas.",
+      "phone": "(787) 555-1111 ext. 201",
+      "email": "mlopez@organizacion.org"
+    }
+  ],
+  "docs": [],
+  "recs": [],
+  "events": []
+}
