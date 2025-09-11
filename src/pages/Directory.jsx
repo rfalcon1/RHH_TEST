@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { getStore } from '../data/api.js'
-
+import { loadAll } from '../data/api.js'
 export default function Directory(){
   const [query, setQuery] = useState('')
   const [staff, setStaff] = useState([])
-  useEffect(()=>{ getStore().then(d => setStaff(d?.staff || [])) },[])
+  useEffect(()=>{ loadAll().then(d => setStaff(d.staff||[])) },[])
   const filtered = useMemo(()=>{
     const q = query.toLowerCase()
     return staff.filter(p => [p.name, p.role, p.assistance].some(f=> (f||'').toLowerCase().includes(q)))

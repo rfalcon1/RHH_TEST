@@ -1,0 +1,92 @@
+{
+  "staff": [
+    {
+      "id": "1",
+      "name": "María López",
+      "role": "Directora de Recursos Humanos",
+      "assistance": "Políticas institucionales, relaciones laborales, toma de decisiones críticas.",
+      "phone": "(787) 555-1111 ext. 201",
+      "email": "mlopez@organizacion.org"
+    },
+    {
+      "id": "2",
+      "name": "Juan Rivera",
+      "role": "Especialista en Reclutamiento",
+      "assistance": "Procesos de reclutamiento, entrevistas, verificación de credenciales.",
+      "phone": "(787) 555-1111 ext. 202",
+      "email": "jrivera@organizacion.org"
+    },
+    {
+      "id": "3",
+      "name": "Carmen Sánchez",
+      "role": "Coordinadora de Nómina y Beneficios",
+      "assistance": "Manejo de salarios, deducciones, beneficios de empleados.",
+      "phone": "(787) 555-1111 ext. 203",
+      "email": "csanchez@organizacion.org"
+    }
+  ],
+  "docs": [
+    {
+      "id": "d1",
+      "title": "Manual del Empleado",
+      "url": "#",
+      "category": "General",
+      "updated": "2025-08-01"
+    },
+    {
+      "id": "d2",
+      "title": "Políticas de Asistencia y Licencias",
+      "url": "#",
+      "category": "Políticas",
+      "updated": "2025-07-15"
+    },
+    {
+      "id": "d3",
+      "title": "Procedimiento de Reclutamiento",
+      "url": "#",
+      "category": "Reclutamiento",
+      "updated": "2025-06-20"
+    },
+    {
+      "id": "d4",
+      "title": "Formato Solicitud de Personal",
+      "url": "#",
+      "category": "Formularios",
+      "updated": "2025-05-30"
+    },
+    {
+      "id": "d5",
+      "title": "Guía de Evaluación de Desempeño",
+      "url": "#",
+      "category": "Evaluación",
+      "updated": "2025-07-10"
+    },
+    {
+      "id": "d6",
+      "title": "Protocolos de Confidencialidad y PII",
+      "url": "#",
+      "category": "Compliance",
+      "updated": "2025-04-18"
+    }
+  ],
+  "events": [
+    {
+      "id": "e1",
+      "date": "2025-09-15",
+      "title": "Cierre de nómina",
+      "type": "Nómina"
+    },
+    {
+      "id": "e2",
+      "date": "2025-09-20",
+      "title": "Capacitación: PII & HIPAA",
+      "type": "Capacitación"
+    },
+    {
+      "id": "e3",
+      "date": "2025-09-30",
+      "title": "Entrega de evaluaciones",
+      "type": "Evaluación"
+    }
+  ]
+}
