@@ -1,1 +1,1 @@
-export default { content:['./index.html','./src/**/*.{js,jsx}'], theme:{extend:{ colors:{ brand:'#0ea5e9', accent:'#f97316', lime:'#84cc16' } }}, plugins:[] }
+export default { content:['./index.html','./src/**/*.{js,jsx}'], theme:{extend:{ colors:{ brand:'rgb(var(--c1))' } }}, plugins:[] }
