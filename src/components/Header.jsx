@@ -23,6 +23,7 @@ export default function Header(){
         <NavLink end to="/" className={cls}>Directorio</NavLink>
         <NavLink to="/documentos" className={cls}>Documentos</NavLink>
         <NavLink to="/calendario" className={cls}>Calendario</NavLink>
+        <NavLink to="/kpis" className={cls}>KPIs</NavLink>
         <NavLink to="/admin" className={cls}>Administración</NavLink>
         <ThemeSwitcher/>
       </nav>

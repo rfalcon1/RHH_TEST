@@ -4,6 +4,7 @@ import Directory from './pages/Directory.jsx'
 import Documents from './pages/Documents.jsx'
 import Viewer from './pages/Viewer.jsx'
 import CalendarPage from './pages/Calendar.jsx'
+import KPIs from './pages/KPIs.jsx'
 import Admin from './pages/Admin.jsx'
 export default function App(){
   return(<div className="min-h-screen">
@@ -14,6 +15,7 @@ export default function App(){
         <Route path="/documentos" element={<Documents/>} />
         <Route path="/doc/:id" element={<Viewer/>} />
         <Route path="/calendario" element={<CalendarPage/>} />
+        <Route path="/kpis" element={<KPIs/>} />
         <Route path="/admin" element={<Admin/>} />
       </Routes>
     </main>
