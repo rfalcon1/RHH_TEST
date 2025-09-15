@@ -1,28 +1,18 @@
 
-# Directorio de Recursos Humanos — DEMO (V4 Fixed Seed r2)
+# Directorio de Recursos Humanos — DEMO (V4 r4: Avatares + Thumbnails)
 
-Demo listo para GitHub + Netlify:
-- SPA con React + Vite + Tailwind
-- Directorio con 20+ fichas (bio, asignaciones, `mailto:`)
-- Documentos demo (PDF/PNG/HTML/PPTX/DOCX/XLSX) con preview/descarga
-- Calendario con ejemplos hasta mayo 2026
-- KPIs tarjetas
-- Administración (clave **RH2025**)
-- Routing SPA: `netlify.toml` y `public/_redirects`
+Novedades:
+- Avatares por empleado (`/public/avatars/*.png`), mostrados en el Directorio.
+- Thumbnails por documento (`/public/thumbs/*.png`), visibles en Documentos y Viewer.
+- Documentos **reales y públicos** (.gov / .edu) en `seed.json`.
+- Admin (clave **RH2025**), KPIs, Calendario hasta mayo 2026.
+- SPA con `netlify.toml` y `_redirects` listos.
 
 ## Scripts
-```bash
 npm i
-npm run dev
 npm run build
-```
+npm run preview
 
 ## Deploy Netlify
-- Build: `npm run build`
-- Publish: `dist`
-- Redirects: ya incluidos para SPA
-
-## Estructura
-- `src/pages/*` (Directory, Documents, Viewer, Calendar, KPIs, Admin)
-- `src/data/seed.json` (empleados, docs, eventos, KPIs)
-- `public/docs/*` (archivos demo para el visor)
+Build: npm run build
+Publish: dist

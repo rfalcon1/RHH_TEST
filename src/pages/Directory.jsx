@@ -15,8 +15,13 @@ export default function Directory(){
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {filtered.map(p => (<div key={p.id} className="card hover:shadow-lg transition">
-        <p className="font-semibold">{p.name}</p>
-        <p className="text-sm" style={{color:'rgb(var(--c1))'}}>{p.role}</p>
+        <div className="flex items-center gap-3">
+          <img src={p.avatar || '/avatars/default.png'} alt={p.name} className="w-12 h-12 rounded-full border"/>
+          <div>
+            <p className="font-semibold">{p.name}</p>
+            <p className="text-sm" style={{color:'rgb(var(--c1))'}}>{p.role}</p>
+          </div>
+        </div>
         <p className="text-sm text-gray-700 mt-2">{p.assistance}</p>
         <p className="text-sm mt-2">📞 {p.phone} — ✉️ <a href={`mailto:${p.email}`}>{p.email}</a></p>
         {p.bio && (<div className="mt-3">

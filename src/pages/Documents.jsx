@@ -19,11 +19,13 @@ export default function Documents(){
       <h2 className="text-lg font-semibold">{cat}</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {filtered.filter(d=>d.category===cat).map(doc => (
-          <Link key={doc.id} to={`/doc/${doc.id}`} className="card hover:shadow-md">
-            <div className="flex items-center justify-between">
-              <div><p className="font-medium">{doc.title}</p><p className="text-xs text-gray-500">Actualizado: {doc.updated}</p></div>
-              <span className="badge">{(doc.mime||'other').split('/').pop()}</span>
+          <Link key={doc.id} to={`/doc/${doc.id}`} className="card hover:shadow-md flex gap-3">
+            <img src={doc.thumb || '/thumbs/pdf.png'} alt="" className="w-12 h-12 rounded-md border"/>
+            <div className="flex-1">
+              <p className="font-medium">{doc.title}</p>
+              <p className="text-xs text-gray-500">Actualizado: {doc.updated}</p>
             </div>
+            <span className="badge self-start">{(doc.mime||'other').split('/').pop()}</span>
           </Link>
         ))}
       </div>

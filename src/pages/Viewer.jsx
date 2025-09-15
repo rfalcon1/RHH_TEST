@@ -11,7 +11,10 @@ export default function Viewer(){
   const isHtml = (doc.mime||'')==='text/html'
   return (<section className="space-y-4">
     <div className="flex items-center justify-between">
-      <div><h1 className="text-2xl font-bold" style={{color:'rgb(var(--c1))'}}>{doc.title}</h1><p className="text-sm text-gray-600">{doc.category} — {doc.updated}</p></div>
+      <div className="flex items-center gap-3">
+        <img src={doc.thumb || '/thumbs/pdf.png'} className="w-10 h-10 rounded-md border" alt="thumb"/>
+        <div><h1 className="text-2xl font-bold" style={{color:'rgb(var(--c1))'}}>{doc.title}</h1><p className="text-sm text-gray-600">{doc.category} — {doc.updated}</p></div>
+      </div>
       <div className="flex gap-2">
         <a className="btn" href={doc.url} target="_blank" rel="noreferrer">Abrir original</a>
         <Link className="btn" to="/documentos">Volver</Link>
