@@ -33,7 +33,19 @@ export default function Admin(){
         <input ref={fileRef} type="file" accept="application/json" className="hidden" onChange={importJSON}/>
         <button className="btn" onClick={resetDemo}>🧹 Restablecer demo</button>
       </div>
-      <p className="text-xs text-gray-600">Consejo: Para PDFs externos que no se embeber, pega la URL y elige el visor alternativo en la vista del documento.</p>
+      <p className="text-xs text-gray-600">Para que TODO se vea embebido, el visor ahora usa PDF.js y un proxy propio.</p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-6 items-start">
+      <div className="card space-y-2">
+        <h2 className="font-semibold">Agregar / Editar <span className="text-blue-600">documento</span></h2>
+        {['title','url','category','mime','updated','thumb'].map(k=>(<div key={k}><label className="text-sm font-medium capitalize">{k}</label><input className="input" value={docf[k]||''} onChange={e=>setDocf({...docf,[k]:e.target.value})} placeholder={k==='url'?'/docs/archivo.pdf o https://...':''} /></div>))}
+        <button className="btn btn-primary" onClick={saveDoc}>Guardar documento</button>
+      </div>
+      <div className="grid gap-3">{docs.map(d=>(<div key={d.id} className="card flex items-start justify-between gap-3">
+        <div><p className="font-medium">{d.title}</p><p className="text-sm text-gray-700">{d.category} — {d.updated} — {d.mime}</p><a className="text-sm" href={d.url} target="_blank" rel="noreferrer">Abrir</a></div>
+        <div className="flex gap-2"><button className="btn" onClick={()=>setDocf(d)}>Editar</button><button className="btn" onClick={()=>removeDoc(d.id)}>Eliminar</button></div>
+      </div>))}</div>
     </div>
 
     <div className="grid md:grid-cols-2 gap-6 items-start">
@@ -46,18 +58,6 @@ export default function Admin(){
       <div className="grid gap-3">{staff.map(s=>(<div key={s.id} className="card flex items-start justify-between gap-3">
         <div><p className="font-medium">{s.name}</p><p className="text-sm" style={{color:'rgb(var(--c1))'}}>{s.role}</p><p className="text-sm text-gray-700">{s.assistance}</p><p className="text-sm">📞 {s.phone} — ✉️ <a href={`mailto:${s.email}`}>{s.email}</a></p>{s.bio && <p className="text-sm mt-1"><strong>Bio:</strong> {s.bio}</p>}{Array.isArray(s.assignments)&&s.assignments.length>0 && <ul className="list-disc list-inside text-sm text-gray-700 mt-1">{s.assignments.map((a,i)=><li key={i}>{a}</li>)}</ul>}</div>
         <div className="flex gap-2"><button className="btn" onClick={()=>setForm(s)}>Editar</button><button className="btn" onClick={()=>removeStaff(s.id)}>Eliminar</button></div>
-      </div>))}</div>
-    </div>
-
-    <div className="grid md:grid-cols-2 gap-6 items-start">
-      <div className="card space-y-2">
-        <h2 className="font-semibold">Agregar / Editar <span className="text-blue-600">documento</span></h2>
-        {['title','url','category','mime','updated','thumb'].map(k=>(<div key={k}><label className="text-sm font-medium capitalize">{k}</label><input className="input" value={docf[k]||''} onChange={e=>setDocf({...docf,[k]:e.target.value})} placeholder={k==='url'?'/docs/archivo.pdf o https://...':''} /></div>))}
-        <button className="btn btn-primary" onClick={saveDoc}>Guardar documento</button>
-      </div>
-      <div className="grid gap-3">{docs.map(d=>(<div key={d.id} className="card flex items-start justify-between gap-3">
-        <div><p className="font-medium">{d.title}</p><p className="text-sm text-gray-700">{d.category} — {d.updated} — {d.mime}</p><a className="text-sm" href={d.url} target="_blank" rel="noreferrer">Abrir</a></div>
-        <div className="flex gap-2"><button className="btn" onClick={()=>setDocf(d)}>Editar</button><button className="btn" onClick={()=>removeDoc(d.id)}>Eliminar</button></div>
       </div>))}</div>
     </div>
 
