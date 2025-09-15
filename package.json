@@ -1,7 +1,7 @@
 {
-  "name": "hr-directory-demo-plus-v4-1",
+  "name": "hr-directory-demo-plus-v4-2",
   "private": true,
-  "version": "1.5.2",
+  "version": "1.6.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
