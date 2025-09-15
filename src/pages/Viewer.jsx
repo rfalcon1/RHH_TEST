@@ -2,37 +2,32 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadAll } from '../data/api.js'
 import * as pdfjsLib from 'pdfjs-dist/build/pdf.mjs'
-pdfjsLib.GlobalWorkerOptions.workerSrc = new URL('pdf.worker.min.mjs', import.meta.url).toString()
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.6.82/build/pdf.worker.min.mjs'
 async function fetchArrayBuffer(url){
-  try{
-    // Si es misma-origen, fetch directo; si es externo, usar función de Netlify
-    const isExternal = /^https?:\/\//i.test(url) && !url.includes(location.host)
-    const proxied = isExternal ? `/.netlify/functions/fetch?url=${encodeURIComponent(url)}` : url
-    const res = await fetch(proxied)
-    if(!res.ok) throw new Error('HTTP '+res.status)
-    const buf = await res.arrayBuffer()
-    return buf
-  }catch(e){
-    throw e
-  }
+  const isExternal = /^https?:\/\//i.test(url) && !url.includes(location.host)
+  const proxied = isExternal ? `/.netlify/functions/fetch?url=${encodeURIComponent(url)}` : url
+  const res = await fetch(proxied)
+  if(!res.ok) throw new Error('HTTP '+res.status)
+  return await res.arrayBuffer()
 }
 export default function Viewer(){
   const { id } = useParams()
   const [doc, setDoc] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(true)
-  const [scale, setScale] = useState(1.2)
+  const [scale, setScale] = useState(1.15)
   const containerRef = useRef(null)
   useEffect(()=>{ loadAll().then(d => setDoc((d.docs||[]).find(x=>x.id===id))) },[id])
   useEffect(()=>{
+    let cancelled=false
     async function render(){
       if(!doc) return
       setLoading(true); setError('')
       try{
         if((doc.mime||'')!=='application/pdf'){ setLoading(false); return }
         const data = await fetchArrayBuffer(doc.url)
+        if(cancelled) return
         const pdf = await pdfjsLib.getDocument({data}).promise
-        // Renderizar todas las páginas (reasonable for posters/guides)
         const pages = pdf.numPages
         const container = containerRef.current
         container.innerHTML = ''
@@ -46,14 +41,16 @@ export default function Viewer(){
           canvas.style.marginBottom = '16px'
           container.appendChild(canvas)
           await page.render({ canvasContext: ctx, viewport }).promise
+          if(cancelled) return
         }
       }catch(e){
-        console.error(e); setError('No se pudo renderizar el PDF.'); 
+        console.error(e); setError('No se pudo renderizar el PDF.')
       }finally{
-        setLoading(false)
+        if(!cancelled) setLoading(false)
       }
     }
     render()
+    return ()=>{ cancelled=true }
   },[doc, scale])
   if(!doc) return <div className="card">Cargando...</div>
   const isPdf = (doc.mime||'')==='application/pdf'
