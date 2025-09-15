@@ -1,18 +1,11 @@
 
-# Directorio de Recursos Humanos — DEMO (V4 r4: Avatares + Thumbnails)
+# HR Directory DEMO v4 r5 — Fix Compliance Preview
 
-Novedades:
-- Avatares por empleado (`/public/avatars/*.png`), mostrados en el Directorio.
-- Thumbnails por documento (`/public/thumbs/*.png`), visibles en Documentos y Viewer.
-- Documentos **reales y públicos** (.gov / .edu) en `seed.json`.
-- Admin (clave **RH2025**), KPIs, Calendario hasta mayo 2026.
-- SPA con `netlify.toml` y `_redirects` listos.
+Cambios clave:
+- **Viewer**: mensaje claro si el PDF externo no permite embed por X-Frame-Options/CSP + botón primario **Abrir original**.
+- **Admin**: botón **🧹 Restablecer demo** que limpia `localStorage` (soluciona casos donde el array `docs` local sobrescribe el seed y no aparece *Compliance*).
 
-## Scripts
-npm i
-npm run build
-npm run preview
-
-## Deploy Netlify
-Build: npm run build
-Publish: dist
+Cómo usar:
+1) Subir a GitHub/Netlify como siempre.
+2) Si no ves *Compliance* en **/documentos**, entra a **/admin** → *Restablecer demo*.
+3) Si un PDF no se muestra en el visor, usa **Abrir original**.
