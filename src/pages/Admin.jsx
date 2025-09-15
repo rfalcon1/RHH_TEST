@@ -17,14 +17,9 @@ export default function Admin(){
   const saveDoc=async()=>{ if(!docf.title) return; const id=docf.id||crypto.randomUUID(); const exists=docs.some(d=>d.id===id); const next=exists? docs.map(d=>d.id===id? {...docf,id}:d):[...docs,{...docf,id}]; setDocs(next); setStatus('Guardando...'); const data=await loadAll(); await saveAll({...data,docs:next}); setStatus('Guardado ✅'); setTimeout(()=>setStatus(''),2000); setDocf({id:'',title:'',url:'',category:'',mime:'',updated:''}) }
   const removeDoc=async(id)=>{ const next=docs.filter(d=>d.id!==id); setDocs(next); const data=await loadAll(); await saveAll({...data,docs:next}) }
   const saveKpis=async()=>{ const data=await loadAll(); const next={...data, kpis}; await saveAll(next); setStatus('KPIs guardados ✅'); setTimeout(()=>setStatus(''),2000) }
-  const resetDemo=()=>{ localStorage.removeItem('hr-demo-store'); alert('Demo restablecido. Se recargará la página.'); location.reload() }
   if(!authed){ return (<section className="max-w-md mx-auto card mt-10"><h1 className="text-xl font-bold mb-2">Acceso Administrativo</h1><p className="text-sm text-gray-600 mb-4">Ingresa la contraseña para editar el demo.</p><input type="password" className="input mb-3" placeholder="Contraseña" onKeyDown={e=>{ if(e.key==='Enter') login(e.currentTarget.value) }} /><button className="btn btn-primary w-full" onClick={()=> login(document.querySelector('input[type=password]').value)}>Entrar</button><p className="text-xs text-gray-500 mt-2">Pista: RH + año</p></section>) }
   return (<section className="space-y-8">
     <div className="flex items-center justify-between"><div><h1 className="text-3xl font-extrabold" style={{color:'rgb(var(--c1))'}}>Administración</h1><p className="text-sm text-gray-600">Protegido con contraseña de demo.</p></div><span className="text-sm text-gray-600">{status}</span></div>
-    <div className="flex items-center gap-3">
-      <button className="btn" onClick={resetDemo}>🧹 Restablecer demo</button>
-      <span className="text-xs text-gray-600">Limpia datos locales y vuelve a cargar el seed (útil si no ves “Compliance”).</span>
-    </div>
     <div className="grid md:grid-cols-2 gap-6 items-start">
       <div className="card space-y-2"><h2 className="font-semibold">Agregar / Editar personal</h2>
         {['name','role','assistance','phone','email','bio'].map(k=>(<div key={k}><label className="text-sm font-medium capitalize">{k}</label><input className="input" value={form[k]||''} onChange={e=>setForm({...form,[k]:e.target.value})} /></div>))}
@@ -38,7 +33,7 @@ export default function Admin(){
     </div>
     <div className="grid md:grid-cols-2 gap-6 items-start">
       <div className="card space-y-2"><h2 className="font-semibold">Agregar / Editar documento</h2>
-        {['title','url','category','mime','updated'].map(k=>(<div key={k}><label className="text-sm font-medium capitalize">{k}</label><input className="input" value={docf[k]||''} onChange={e=>setDocf({...docf,[k]:e.target.value})} placeholder={k==='url'?'/docs/archivo.pdf, .png, .html, o URL https://...':'...'} /></div>))}
+        {['title','url','category','mime','updated'].map(k=>(<div key={k}><label className="text-sm font-medium capitalize">{k}</label><input className="input" value={docf[k]||''} onChange={e=>setDocf({...docf,[k]:e.target.value})} placeholder={k==='url'?'/docs/archivo.pdf, .png, .html, .pptx, .docx, .xlsx':'...'} /></div>))}
         <button className="btn btn-primary" onClick={saveDoc}>Guardar</button>
       </div>
       <div className="grid gap-3">{docs.map(d=>(<div key={d.id} className="card flex items-start justify-between gap-3">

@@ -12,7 +12,7 @@ export default function Documents(){
   const categories = Array.from(new Set(filtered.map(d=>d.category)))
   return (<section className="space-y-6">
     <div className="flex items-end justify-between gap-4">
-      <div><h1 className="text-3xl font-extrabold" style={{color:'rgb(var(--c1))'}}>Documentos</h1><p className="text-sm text-gray-600">Si un PDF no se ve embebido, usa “Abrir original”.</p></div>
+      <div><h1 className="text-3xl font-extrabold" style={{color:'rgb(var(--c1))'}}>Documentos</h1><p className="text-sm text-gray-600">Preview integrado (PDF, imágenes, HTML). Otros formatos (PPTX/DOCX/XLSX) se descargan.</p></div>
       <input className="input max-w-md" placeholder="Buscar por título, categoría o tipo..." value={query} onChange={e=>setQuery(e.target.value)} />
     </div>
     {categories.map(cat => (<div key={cat} className="space-y-2">

@@ -1,11 +1,10 @@
 
-# HR Directory DEMO v4 r5 — Fix Compliance Preview
+# HR Directory DEMO v4.1 — Restauración de r4 + fix de visor para Compliance
 
-Cambios clave:
-- **Viewer**: mensaje claro si el PDF externo no permite embed por X-Frame-Options/CSP + botón primario **Abrir original**.
-- **Admin**: botón **🧹 Restablecer demo** que limpia `localStorage` (soluciona casos donde el array `docs` local sobrescribe el seed y no aparece *Compliance*).
+✅ Restaura **todo** lo de r4 (avatars, thumbnails, 22 empleados, documentos públicos, calendario, KPIs, Admin).
+🛠️ Cambio ÚNICO: `Viewer.jsx` muestra mejor el PDF y un fallback claro si el sitio bloquea la incrustación (botón **Abrir original** siempre visible).
 
-Cómo usar:
-1) Subir a GitHub/Netlify como siempre.
-2) Si no ves *Compliance* en **/documentos**, entra a **/admin** → *Restablecer demo*.
-3) Si un PDF no se muestra en el visor, usa **Abrir original**.
+Build/Deploy:
+- `npm i`
+- `npm run build`
+- Publicar `dist` en Netlify
