@@ -1,8 +1,49 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadAll } from '../data/api.js'
+function Modal({open,onClose,person}){
+  if(!open||!person) return null
+  return (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+    <div className="bg-white rounded-2xl shadow-xl max-w-2xl w-[92%] p-4">
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-3">
+          <img src={person.avatar||'/avatars/default.png'} className="w-14 h-14 rounded-full border object-cover" alt=""/>
+          <div>
+            <h3 className="text-xl font-bold" style={{color:'rgb(var(--c1))'}}>{person.name}</h3>
+            <p className="text-sm text-gray-700">{person.role}</p>
+            <p className="text-sm">📞 {person.phone} — ✉️ <a href={`mailto:${person.email}`}>{person.email}</a></p>
+          </div>
+        </div>
+        <button className="btn" onClick={onClose}>✖</button>
+      </div>
+      <div className="grid md:grid-cols-3 gap-3">
+        <div className="md:col-span-2">
+          <div className="card">
+            <h4 className="font-semibold mb-1">Resumen</h4>
+            <p className="text-sm text-gray-700">{person.bio || '—'}</p>
+            {Array.isArray(person.assignments)&&person.assignments.length>0 && <div className="mt-2">
+              <h5 className="font-semibold text-sm">Asignaciones actuales</h5>
+              <ul className="list-disc list-inside text-sm text-gray-700">{person.assignments.map((a,i)=><li key={i}>{a}</li>)}</ul>
+            </div>}
+          </div>
+        </div>
+        <div className="space-y-3">
+          <div className="card">
+            <h4 className="font-semibold mb-1">Asistencia que brinda</h4>
+            <p className="text-sm text-gray-700">{person.assistance}</p>
+          </div>
+          {Array.isArray(person.history)&&person.history.length>0 && <div className="card">
+            <h4 className="font-semibold mb-1">Experiencia previa</h4>
+            <ul className="list-disc list-inside text-sm text-gray-700">{person.history.map((h,i)=><li key={i}>{h}</li>)}</ul>
+          </div>}
+        </div>
+      </div>
+    </div>
+  </div>)}
 export default function Directory(){
   const [query, setQuery] = useState('')
   const [staff, setStaff] = useState([])
+  const [open, setOpen] = useState(false)
+  const [current, setCurrent] = useState(null)
   useEffect(()=>{ loadAll().then(d => setStaff(d.staff||[])) },[])
   const filtered = useMemo(()=>{
     const q = query.toLowerCase()
@@ -14,7 +55,7 @@ export default function Directory(){
       <input className="input max-w-md" placeholder="Buscar..." value={query} onChange={e=>setQuery(e.target.value)} />
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {filtered.map(p => (<div key={p.id} className="card hover:shadow-lg transition">
+      {filtered.map(p => (<div key={p.id} className="card hover:shadow-lg transition cursor-pointer" onClick={()=>{ setCurrent(p); setOpen(true) }}>
         <div className="flex items-center gap-3">
           <img src={p.avatar || '/avatars/default.png'} alt={p.name} className="w-12 h-12 rounded-full border"/>
           <div>
@@ -35,3 +76,4 @@ export default function Directory(){
     </div>
   </section>)
 }
+<Modal open={open} onClose={()=>setOpen(false)} person={current}/>
