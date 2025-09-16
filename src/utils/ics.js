@@ -1,0 +1,2 @@
+export function eventsToICS(events=[]){return 'BEGIN:VCALENDAR\r\nVERSION:2.0\r\nEND:VCALENDAR'}
+export function downloadICS(name, events){const blob=new Blob([eventsToICS(events)],{type:'text/calendar'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name||'calendar.ics';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(url);a.remove()},0)}

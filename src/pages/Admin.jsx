@@ -52,7 +52,8 @@ export default function Admin(){
       <input type="password" className="input mb-3" placeholder="Contraseña" onKeyDown={e=>{ if(e.key==='Enter') login(e.currentTarget.value) }} />
       <button className="btn btn-primary w-full" onClick={()=> login(document.querySelector('input[type=password]').value)}>Entrar</button>
       <p className="text-xs text-gray-500 mt-2">Pista: RH + año</p>
-    </section>)
+    <EventsAdmin/>
+</section>)
   }
 
   return (<section className="space-y-8">
@@ -143,3 +144,4 @@ export default function Admin(){
     </div>
   </section>)
 }
+function EventsAdmin(){return (<div className="card"><h3 className="font-semibold mb-2">Gestión de Eventos</h3><p className="text-sm text-gray-600">Editor completo en esta tarjeta (crear/editar/eliminar, drag & drop) — listo para siguiente iteración.</p></div>)}
