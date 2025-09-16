@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { loadAll } from '../data/api.js'
 function Modal({open,onClose,person}){
+  const [photoOpen, setPhotoOpen] = React.useState(false);
   if(!open||!person) return null
   return (<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
     <div className="bg-white rounded-2xl shadow-xl max-w-2xl w-[92%] p-4">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-3">
-          <img src={person.avatar||'/avatars/default.png'} className="w-14 h-14 rounded-full border object-cover" alt=""/>
+          <img src={person.avatar||'/avatars/default.png'} className="w-20 h-20 rounded-full border object-cover cursor-zoom-in" onClick={()=>setPhotoOpen(true)} alt=""/>
           <div>
             <h3 className="text-xl font-bold" style={{color:'rgb(var(--c1))'}}>{person.name}</h3>
             <p className="text-sm text-gray-700">{person.role}</p>
@@ -37,6 +38,9 @@ function Modal({open,onClose,person}){
           </div>}
         </div>
       </div>
+    {photoOpen && (<div className="fixed inset-0 z-[60] bg-black/70 flex items-center justify-center" onClick={()=>setPhotoOpen(false)}>
+      <img src={person.avatar||'/avatars/default.png'} alt="" className="max-w-[90vw] max-h-[85vh] rounded-2xl shadow-2xl"/>
+    </div>)}
     </div>
   </div>)}
 export default function Directory(){
