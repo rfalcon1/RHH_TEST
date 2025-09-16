@@ -74,6 +74,6 @@ export default function Directory(){
       </div>))}
       {filtered.length===0 && <div className="italic text-gray-600">No hay resultados</div>}
     </div>
+    <Modal open={open} onClose={()=>setOpen(false)} person={current}/>
   </section>)
 }
-<Modal open={open} onClose={()=>setOpen(false)} person={current}/>
