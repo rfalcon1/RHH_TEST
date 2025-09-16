@@ -33,7 +33,7 @@ export default function Admin(){
         <input ref={fileRef} type="file" accept="application/json" className="hidden" onChange={importJSON}/>
         <button className="btn" onClick={resetDemo}>🧹 Restablecer demo</button>
       </div>
-      <p className="text-xs text-gray-600">El visor PDF usa PDF.js con worker desde CDN y proxy para PDFs externos.</p>
+      <p className="text-xs text-gray-600">El visor PDF usa PDF.js (legacy) con fetch directo y fallback a proxy.</p>
     </div>
 
     <div className="grid md:grid-cols-2 gap-6 items-start">

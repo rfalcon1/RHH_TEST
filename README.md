@@ -1,11 +1,11 @@
 
-# HR Directory DEMO v4.5 — Fix PDF.js worker (CDN)
+# HR Directory DEMO v4.6 — PDF.js (legacy) + Dual fetch (directo → proxy)
 
-- PDF.js ahora usa `workerSrc` desde CDN para evitar problemas de bundling en Vite/Netlify.
-- Mantiene el proxy `/.netlify/functions/fetch` para PDFs externos.
-- Resto igual (Admin doc mgmt, Directorio, KPIs, Calendario).
+- PDF.js 3.11 (legacy) estable en Vite/Netlify
+- Intento de descarga directo; si falla y la URL es externa, segundo intento via `/.netlify/functions/fetch`
+- Admin doc mgmt, Directorio, KPIs, Calendario incluidos
 
-Deploy en Netlify:
+Netlify:
 - Build: `npm run build`
 - Publish: `dist`
-- Functions dir: `netlify/functions` (netlify.toml ya lo define)
+- Functions dir: `netlify/functions`

@@ -1,14 +1,30 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { loadAll } from '../data/api.js'
-import * as pdfjsLib from 'pdfjs-dist/build/pdf.mjs'
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.6.82/build/pdf.worker.min.mjs'
-async function fetchArrayBuffer(url){
+import * as pdfjsLib from 'pdfjs-dist/legacy/build/pdf'
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js'
+async function fetchArrayBufferWithFallback(url){
   const isExternal = /^https?:\/\//i.test(url) && !url.includes(location.host)
-  const proxied = isExternal ? `/.netlify/functions/fetch?url=${encodeURIComponent(url)}` : url
-  const res = await fetch(proxied)
-  if(!res.ok) throw new Error('HTTP '+res.status)
-  return await res.arrayBuffer()
+  // 1) Intento directo
+  try{
+    const r1 = await fetch(url)
+    if(!r1.ok) throw new Error('HTTP '+r1.status)
+    return await r1.arrayBuffer()
+  }catch(err1){
+    // 2) Si es externo, intento vía proxy Netlify
+    if(isExternal){
+      try{
+        const proxied = `/.netlify/functions/fetch?url=${encodeURIComponent(url)}`
+        const r2 = await fetch(proxied)
+        if(!r2.ok) throw new Error('Proxy HTTP '+r2.status)
+        return await r2.arrayBuffer()
+      }catch(err2){
+        throw new Error(err1.message + ' | ' + err2.message)
+      }
+    } else {
+      throw err1
+    }
+  }
 }
 export default function Viewer(){
   const { id } = useParams()
@@ -25,7 +41,7 @@ export default function Viewer(){
       setLoading(true); setError('')
       try{
         if((doc.mime||'')!=='application/pdf'){ setLoading(false); return }
-        const data = await fetchArrayBuffer(doc.url)
+        const data = await fetchArrayBufferWithFallback(doc.url)
         if(cancelled) return
         const pdf = await pdfjsLib.getDocument({data}).promise
         const pages = pdf.numPages
@@ -44,7 +60,7 @@ export default function Viewer(){
           if(cancelled) return
         }
       }catch(e){
-        console.error(e); setError('No se pudo renderizar el PDF.')
+        console.error(e); setError('No se pudo renderizar el PDF — '+(e?.message||'error desconocido'))
       }finally{
         if(!cancelled) setLoading(false)
       }
