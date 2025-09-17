@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { loadAll } from '../data/api.js'
+import { PR_HOLIDAYS, TZ } from '../utils/holidays-pr.js'
 
 // Helpers
 const toISO = (d)=> d.toISOString().slice(0,10)
@@ -51,7 +52,7 @@ function MonthView({ events, refDate, onPrev, onNext, onToday }){
         const todays = sameDay(d, new Date())
         const evs = map.get(iso)||[]
         return (<div key={i} className={"border rounded-xl p-2 min-h-[80px] "+(inMonth? "bg-white":"bg-gray-50")+" "+(todays? "ring-2 ring-blue-400":"")}>
-          <div className={"text-xs mb-1 "+(inMonth? "text-gray-800":"text-gray-400")}>{d.getDate()}</div>
+          <div className={"text-xs mb-1 flex items-center gap-1 "+(inMonth? "text-gray-800":"text-gray-400")}>{d.getDate()} {PR_HOLIDAYS.has(iso)&& <span className="text-[10px] px-1 py-0.5 rounded bg-red-100 text-red-600">Feriado</span>}</div>
           <div className="space-y-1">
             {evs.slice(0,3).map(e=>(<div key={e.id} className="text-[11px] truncate px-2 py-1 rounded-lg" style={{background:'rgba(14,165,233,.12)', color:'rgb(14,165,233)'}}>{e.title}</div>))}
             {evs.length>3 && <div className="text-[10px] text-gray-500">+{evs.length-3} más</div>}
@@ -80,7 +81,7 @@ function WeekView({ events, refDate, onPrev, onNext, onToday }){
         <button className="btn" onClick={onNext}>▶</button>
       </div>
       <div className="text-sm text-gray-700">
-        {days[0].toLocaleDateString('es-PR',{day:'2-digit',month:'short'})} — {days[6].toLocaleDateString('es-PR',{day:'2-digit',month:'short',year:'numeric'})}
+        {new Intl.DateTimeFormat('es-PR',{timeZone:TZ, day:'2-digit',month:'short'}).format(days[0])} — {new Intl.DateTimeFormat('es-PR',{timeZone:TZ, day:'2-digit',month:'short',year:'numeric'}).format(days[6])}
       </div>
     </div>
     <div className="grid grid-cols-7 gap-2">
