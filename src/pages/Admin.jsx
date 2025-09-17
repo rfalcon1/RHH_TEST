@@ -144,4 +144,4 @@ export default function Admin(){
     </div>
   </section>)
 }
-function EventsAdmin(){return (<div className="card"><h3 className="font-semibold mb-2">Gestión de Eventos</h3><p className="text-sm text-gray-600">Editor completo en esta tarjeta (crear/editar/eliminar, drag & drop) — listo para siguiente iteración.</p></div>)}
+function EventsAdmin(){return (<div className="card"><h3 className="font-semibold mb-2">Gestión de Eventos</h3><p className="text-sm text-gray-600">CRUD + drag & drop se activará aquí (sin tocar tu calendario público).</p></div>)}
